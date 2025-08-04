@@ -1,5 +1,5 @@
-import  {userRepository} from "src/repository/ports/userRepository";
-import { RequestCreateUserSchema } from "src/dto/user/RequestCreateUserSchema";
+import { UserRepository } from "src/repository/ports/UserRepositoy";
+import { RequestCreateUserSchemaType } from "src/dto/user/RequestCreateUserSchema";
 
 export class UserService{
     findById(id: string) {
@@ -8,13 +8,13 @@ export class UserService{
     findByEmail(email: string) {
         throw new Error("Method not implemented.");
     }
-    private userRepository: userRepository;
+    private userRepository: UserRepository;
 
-    constructor(userRepository: userRepository) {
+    constructor(userRepository: UserRepository) {
         this.userRepository = userRepository;
     }
 
-    async create(data: RequestCreateUserSchema): Promise<void> {
+    async create(data: RequestCreateUserSchemaType): Promise<void> {
         //Implementar   
         
     }

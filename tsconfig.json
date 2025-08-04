@@ -1,26 +1,26 @@
 {
-	"compilerOptions": {
-		"esModuleInterop": true,
-		"resolveJsonModule": true,
-		"skipLibCheck": true,
-		"forceConsistentCasingInFileNames": true,
-		"module": "commonjs",
-		"target": "es2021",
-		"strict": true,
-		"outDir": "./dist",
-		"rootDir": "src",
-		"baseUrl": "./",
-		"sourceMap": true,
-		"paths": {
-			"_": ["src/_"],
-			"lib*": ["src/lib*"],
-			"middleware/_": ["src/middleware/_"],
-			"env": ["./src/env"]
-		}
-	},
-	"include": ["src/**/*", "tests"],
-	"exclude": ["node_modules"],
-	"lib": ["es2015"],
-	"typeRoots": ["node_modules/@types"],
-	"types": ["node", "express"]
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "target": "es2021",
+    "strict": true,
+    "outDir": "./dist",
+    "rootDir": "src",
+    "baseUrl": "./",
+    "sourceMap": true,
+    "paths": {
+      "_": ["src/_"],
+      "lib*": ["src/lib*"],
+      "middleware/_": ["src/middleware/_"],
+      "env": ["./src/env"]
+    }
+  },
+  "include": ["src/**/*", "tests"],
+  "exclude": ["node_modules"],
+  "lib": ["es2015"],
+  "typeRoots": ["node_modules/@types"],
+  "types": ["node", "express"]
 }

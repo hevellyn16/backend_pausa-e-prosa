@@ -1,6 +1,6 @@
 services:
-  pausa_e_prosa:
-    container_name: pausa_e_prosa
+  pausa:
+    container_name: pausa_app
     env_file:
       - .env
     build:
@@ -18,10 +18,10 @@ services:
       - DB_NAME=${DB_NAME}
       - DB_URL=${DB_URL}
     depends_on:
-      - pausa_e_prosa_db
+      - pausa_db
 
-  pausa_e_prosa_db:
-    container_name: pausa_e_prosa_db
+  pausa_db:
+    container_name: pausa_db
     image: postgres:latest
     ports:
       - '5432:5432'
@@ -30,7 +30,7 @@ services:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_NAME}
     volumes:
-      - pausa_e_prosa_db_data:/var/lib/postgresql/data
+      - pausa_db_data:/var/lib/postgresql/data
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U ${DB_USER}']
       interval: 10s
@@ -38,4 +38,4 @@ services:
       retries: 5
 
 volumes:
-  pausa_e_prosa_db_data:
+  pausa_db_data:

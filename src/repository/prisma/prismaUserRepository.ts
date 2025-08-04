@@ -1,3 +1,3 @@
-import {userRepository} from "../ports/userRepository";
+import { UserRepository } from "../ports/UserRepositoy";
 
-export class PrismaUserRepository implements userRepository {}
+export class PrismaUserRepository implements UserRepository {}

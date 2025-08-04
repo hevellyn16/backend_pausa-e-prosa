@@ -1,9 +1,12 @@
 import type { FastifyInstance } from "fastify";
-import { UserController } from "src/web/controllers/UserController";
+import { UserController } from "../controller/UserController";
 
 export function userRoutes(app: FastifyInstance) {
     const userController = new UserController();
 
     //criar usuário
-    app.post("/users", userController.create);
+    app.post('/', userController.create);
+
+
+    
 }

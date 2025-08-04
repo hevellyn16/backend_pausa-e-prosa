@@ -38,4 +38,4 @@ services:
       retries: 5
 
 volumes:
-  trainee_db_data:
+  pausa_e_prosa_db_data:

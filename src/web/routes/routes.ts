@@ -1,9 +1,9 @@
-import type { FastifyInstance } from "fastify";
+// src/web/routes/routes.ts
 
-export async function routes(app: FastifyInstance) {
-  app.get('/', async (request, reply) => {
-    return { message: 'Hello, Fastify!' };
-  });
+import { FastifyInstance } from 'fastify';
+import { userRoutes } from './userRoutes'; 
 
-  // Add more routes here as needed
+export async function routes(fastify: FastifyInstance) {
+
+  fastify.register(userRoutes);
 }

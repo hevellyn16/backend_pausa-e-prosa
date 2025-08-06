@@ -1,6 +1,6 @@
 import { env } from 'env';
 import { app } from './app';
-import { PrismaUserRepository } from './repository/prisma/prismaUserRepository';
+import { PrismaUserRepository } from './repository/prisma/PrismaUserRepository';
 import { UserService } from './service/UserService';
 
 const prismaUserRepository = new PrismaUserRepository();

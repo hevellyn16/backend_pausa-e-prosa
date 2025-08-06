@@ -1,20 +1,28 @@
-import { UserRepository } from "src/repository/ports/UserRepositoy";
+import { UserRepository } from "src/repository/ports/UserRepository";
 import { RequestCreateUserSchemaType } from "src/dto/user/RequestCreateUserSchema";
 import bcrypt from "bcrypt";
 
 const saltRounds = 10;
 
 export class UserService{
-    findById(id: string) {
-        throw new Error("Method not implemented.");
-    }
-    findByEmail(email: string) {
-        throw new Error("Method not implemented.");
-    }
     private userRepository: UserRepository;
 
     constructor(userRepository: UserRepository) {
         this.userRepository = userRepository;
+    }
+
+    async findById(id: string) {
+        const user = await this.userRepository.findById(id);
+        return user;
+    }
+    async findByEmail(email: string) {
+        const user = await this.userRepository.findByEmail(email);
+        return user;
+    }
+
+    async findByName(name: string) {
+        const user = await this.userRepository.findByName(name);
+        return user;
     }
 
     async create(data: RequestCreateUserSchemaType){

@@ -1,4 +1,4 @@
-import { UserRepository } from "../ports/UserRepositoy";
+import { UserRepository } from "../ports/UserRepository";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -13,17 +13,24 @@ export class PrismaUserRepository implements UserRepository {
         });
         return newUser;
     }
-
+    
     async findById(id: string) {
         const user = await prisma.user.findUnique({
             where: { id },
         });
         return user;
     }
-
+    
     async findByEmail(email: string) {
-        const user = await prisma.user.findUnique({
-            where: { email },
+        const user = await prisma.user.findFirst({
+            where: { email: { contains: email, mode: 'insensitive' } },
+        });
+        return user;
+    }
+
+    async findByName(name: string) {
+        const user = await prisma.user.findFirst({
+            where: { name: { contains: name, mode: 'insensitive' } },    
         });
         return user;
     }

@@ -15,4 +15,14 @@ export async function userRoutes(app: FastifyInstance) {
     app.get('/users/:id', async (request, reply) => {
         await userController.findbyId(request, reply);
     });
+
+    app.get('/users/email/:email', async (request, reply) => {
+        await userController.findbyEmail(request, reply);
+    });
+
+    app.get('/users/name/:name', async (request, reply) => {
+        await userController.findByName(request, reply);
+    });
+
+    app.post('/login', userController.login);
 }
